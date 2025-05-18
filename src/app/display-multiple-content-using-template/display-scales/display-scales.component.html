@@ -5,16 +5,22 @@
 
 }
 @if (mutlipleProject == false) {
-@for (size of scaleSizes; track $index) {
-<div [style.transform]="`scale(${size})`">
-    <ng-container [ngTemplateOutlet]="content.templateRef" />
-</div>
+    @for (size of scaleSizes; track $index) {
+    <div [style.transform]="`scale(${size})`">
+        <ng-container [ngTemplateOutlet]="content.templateRef" />
+    </div>
+    }
+    }
+    @else {
+    @for (content of contentArr.toArray(); track $index) {
+    <div> {{$index + 1}} )
+        <ng-container [ngTemplateOutlet]="content.templateRef" />
+    </div>
+    }
 }
-}
-@else {
-@for (content of contentArr.toArray(); track $index) {
-<div> {{$index + 1}} )
-    <ng-container [ngTemplateOutlet]="content.templateRef" />
-</div>
-}
+@if (footerRef) {
+    footer is 
+    <footer>
+        <ng-container [ngTemplateOutlet]="footerRef"></ng-container>
+    </footer>
 }

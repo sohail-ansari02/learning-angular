@@ -1,4 +1,4 @@
-import { Component, ContentChild, ContentChildren, Input, QueryList } from '@angular/core';
+import { Component, ContentChild, ContentChildren, Input, QueryList, TemplateRef } from '@angular/core';
 import { ScalesProjectionDirective } from '../scales-projection.directive';
 import { CommonModule } from '@angular/common';
 import { ScalesProjectionHeaderDirective } from '../scales-projection-header.directive';
@@ -17,5 +17,7 @@ export class DisplayScalesComponent {
 
   @ContentChild(ScalesProjectionHeaderDirective) contentHeader!: ScalesProjectionHeaderDirective;
 
+
+  @ContentChild('footerRef') footerRef!: TemplateRef<unknown>;
 
 }
