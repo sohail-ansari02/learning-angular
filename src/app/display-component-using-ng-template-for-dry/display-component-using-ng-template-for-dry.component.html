@@ -1,0 +1,15 @@
+<ng-template #A>
+    <div class="">
+        AAAAAAAAAAA
+    </div>
+</ng-template>
+<ng-template #CD>
+    <div class="">
+        CDCDCDCDCDCCD
+    </div>
+</ng-template>
+<ng-container [ngTemplateOutlet]="aboveB"></ng-container>
+<div class="">
+    BBBBBBB
+</div>
+<ng-container [ngTemplateOutlet]="belowA"></ng-container>
