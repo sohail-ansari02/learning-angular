@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
 import { DisplayMultipleContentUsingTemplateComponent } from './display-multiple-content-using-template/display-multiple-content-using-template/display-multiple-content-using-template.component';
 import { DisplayComponentUsingNgTemplateForDryComponent } from './display-component-using-ng-template-for-dry/display-component-using-ng-template-for-dry.component';
+import { DynamicComponentsUsingTemplateAndContextComponent } from './dynamic-components-using-template-and-context/dynamic-components-using-template-and-context.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'display-component-using-ng-template-for-dry',
+    redirectTo: 'dynamic-components-using-template-and-context',
     pathMatch: 'full',
   },
   {
@@ -14,6 +15,10 @@ export const routes: Routes = [
   },
   {
     path: 'display-component-using-ng-template-for-dry',
-    loadComponent: () => DisplayComponentUsingNgTemplateForDryComponent
-  }
+    loadComponent: () => DisplayComponentUsingNgTemplateForDryComponent,
+  },
+  {
+    path: 'dynamic-components-using-template-and-context',
+    loadComponent: () => DynamicComponentsUsingTemplateAndContextComponent,
+  },
 ];

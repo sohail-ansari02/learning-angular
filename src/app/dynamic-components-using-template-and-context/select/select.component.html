@@ -1,0 +1,25 @@
+<select (change)="onOptionChange($event)">
+    <option [value]="null" [selected]="!selectedIndex">
+        -- Select Option --
+    </option>
+    @for (option of options; track $index) {
+        <option [value]="$index" [selected]="$index === selectedIndex">
+            <ng-container [ngTemplateOutlet]="optionTemplate || defaultTemplate"
+                [ngTemplateOutletContext]="{$implicit: option, show: 'Mr/Mrs'}" />
+        </option>
+    }
+</select>
+
+<!-- 
+{$implicit: option}
+above code makes an default value, and we can create any name other than let-option
+-->
+<!-- 
+let-show="show" binds the 'show' property from ngTemplateOutletContext to a local template variable 'show'.
+This allows you to access and display additional contextual data (like a prefix or label) alongside the main option.
+In the context object, 'show' must be explicitly passed (e.g., [ngTemplateOutletContext]="{ $implicit: option, show: 'Mr/Mrs' }").
+-->
+<!-- you can name let-show to any name but have to assign key as string from context object  -->
+<ng-template #defaultTemplate let-option let-show="show">
+    {{show}} {{labelKey ? option[labelKey] : labelKey}} 
+</ng-template> 
